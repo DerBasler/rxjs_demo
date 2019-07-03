@@ -145,13 +145,94 @@
 //   .subscribe()
 
 
-//SwitchMap - Get value from Observable A, then emit Observable B
-const clicks = Rx.Observable.fromEvent(document, 'click')
+// //SwitchMap  userId-->query
+// const clicks = Rx.Observable.fromEvent(document, 'click')
 
-clicks.switchMap(click => {
-    return Rx.Observable.interval(500)
-})
-.subscribe(i => print(i))
+// clicks.switchMap(click => {
+//     return Rx.Observable.interval(500)
+// })
+// .subscribe(i => print(i))
+
+
+
+// //TakeUntil 
+// const interval = Rx.Observable.interval(500)
+// const notifier = Rx.Observable.timer(2000)
+
+
+// interval
+//   .takeUntil(notifier)
+//   .finally(()  => print('Complete!'))
+//   .subscribe(i => print(i))
+
+
+
+// // TakeWhile
+// const names = Rx.Observable.of('Sharon', 'Sue', 'Sally', 'Steve')
+
+// names
+//   .takeWhile(name => name != 'Sally')
+//   .finally(()  => print('Complete! I found Sally'))
+//   .subscribe(i => print(i))
+
+
+
+// // Catch 
+// const observable = Rx.Observable.create( observer => {
+//     observer.next( 'good' )
+//     observer.next( 'great' )
+//     observer.next( 'grand' )
+
+//     throw 'catch me!'
+
+//     observer.next( 'wonderful' )
+// })
+
+// observable
+//     .catch( err => print(`Error caught: ${err}`) )
+//     .subscribe( val => print(val) )
+
+// observable
+//     .catch( err => print(`Error caught: ${err}`) )
+//     .retryWhen(err => err.message === 'server overload please try again' )
+//     .subscribe()
+
+
+
+
+// //SwitchMap - Get value from Observable A, then emit Observable B
+// const clicks = Rx.Observable.fromEvent(document, 'click')
+
+// clicks.switchMap(click => {
+//     return Rx.Observable.interval(500)
+// })
+// .subscribe(i => print(i))
+
+
+
+
+// // SUBJECT
+// //An RxJS Subject is just an Observable with the ability to call next() on itself to emit new values - in other words, it is an event emitter.
+// const subject = new Rx.Subject()
+
+// const subA = subject.subscribe( val => print(`Sub A: ${val}`) )
+// const subB = subject.subscribe( val => print(`Sub B: ${val}`) )
+
+// subject.next('Hello')
+
+
+// setTimeout(() => {
+//     subject.next('World')
+// }, 1000)
+
+
+
+
+
+
+
+
+
 
 
 
